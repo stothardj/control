@@ -1,0 +1,18 @@
+#game-container {
+  position: relative;
+}
+
+#mouse, #game {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#mouse {
+  z-index: 1;
+  cursor: none;
+}
+
+#game {
+  z-index: 0;
+}
