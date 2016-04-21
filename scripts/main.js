@@ -1,7 +1,7 @@
 define(['./canvas', './selection', './panning', './random', './ling',
     './unitselection', './game', './unitwaypoints', './controlgroups',
-    './wall'], (canvas, selection, panning, random, ling, unitselection, game,
-      unitwaypoints, controlgroups, wall) => {
+    './wall', './pathable'], (canvas, selection, panning, random, ling,
+      unitselection, game, unitwaypoints, controlgroups, wall, pathable) => {
   let ctx = canvas.ctxmap['game'];
   let width = canvas.canvasmap['game'].width;
   let height = canvas.canvasmap['game'].height;
@@ -15,6 +15,7 @@ define(['./canvas', './selection', './panning', './random', './ling',
     let height = random.rand(10, 100);
     walls.push(new wall.Wall(x, y, width, height));
   }
+  let pathingGrid = pathable.computeGrid(20, walls);
   for (let i=0; i<30; i++) {
     let x = random.rand(0, dim().width);
     let y = random.rand(0, dim().height);
@@ -74,6 +75,7 @@ define(['./canvas', './selection', './panning', './random', './ling',
         if (unit.selected) unitselection.drawSelected(unit);
         unit.draw();
       }
+      pathingGrid.draw();
     })},
     60);
   return {};
