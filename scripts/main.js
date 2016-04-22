@@ -1,6 +1,6 @@
-define(['./canvas', './selection', './panning', './random', './ling',
+define(['./canvas', './selection', './panzoom', './random', './ling',
     './unitselection', './game', './unitwaypoints', './controlgroups',
-    './wall', './pathable'], (canvas, selection, panning, random, ling,
+    './wall', './pathable'], (canvas, selection, panzoom, random, ling,
       unitselection, game, unitwaypoints, controlgroups, wall, pathable) => {
   let ctx = canvas.ctxmap['game'];
   let width = canvas.canvasmap['game'].width;
@@ -24,7 +24,7 @@ define(['./canvas', './selection', './panning', './random', './ling',
     units.push(l);
   }
   selection.start();
-  panning.start();
+  panzoom.start();
   unitwaypoints.start();
   controlgroups.start();
   selection.onSelect((bounds, additive) => {
@@ -64,7 +64,7 @@ define(['./canvas', './selection', './panning', './random', './ling',
   window.setInterval(() => {
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, width, height);
-    panning.withPanningOffset(() => {
+    panzoom.withPanZoom(() => {
       ctx.strokeStyle = '#FF00AA';
       ctx.strokeRect(0, 0, dim().width, dim().height);
       for (let wall of walls) {

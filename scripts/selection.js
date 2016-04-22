@@ -1,4 +1,4 @@
-define(['./canvas', './nativeevents', './panning'], (canvas, nativeevents, panning) => {
+define(['./canvas', './nativeevents', './panzoom'], (canvas, nativeevents, panzoom) => {
   let selecting = false;
   let startX = 0;
   let startY = 0;
@@ -46,8 +46,8 @@ define(['./canvas', './nativeevents', './panning'], (canvas, nativeevents, panni
   let mouseUp = (ev) => {
     if (nativeevents.isLeftMouseButton(ev)) {
       selecting = false;
-      let {x: gameStartX, y: gameStartY} = panning.screenToGameCoords(startX, startY);
-      let {x: gameEndX, y: gameEndY} = panning.screenToGameCoords(endX, endY);
+      let {x: gameStartX, y: gameStartY} = panzoom.screenToGameCoords(startX, startY);
+      let {x: gameEndX, y: gameEndY} = panzoom.screenToGameCoords(endX, endY);
       for (let callback of selectCallbacks) {
         let bounds = {
           startX: gameStartX,
