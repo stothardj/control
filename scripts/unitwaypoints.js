@@ -5,7 +5,7 @@ define(['./canvas', './nativeevents', './panning'], (canvas, nativeevents, panni
     let {x: gameX, y: gameY} = panning.screenToGameCoords(ev.clientX, ev.clientY);
     if (nativeevents.isRightMouseButton(ev)) {
       for (let callback of setWayoutpointCallbacks) {
-        callback({x: gameX, y: gameY});
+        callback({x: gameX, y: gameY}, ev.shiftKey);
       }
     }
   };

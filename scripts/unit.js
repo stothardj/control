@@ -6,21 +6,17 @@ define(() => {
         this.angle = angle;
         this.speed = speed
         this.selected = false;
-        this.waypoints = [];
         this.controlgroups = new Set();
+        this.commands = [];
       }
 
-      move() {
-        if (this.waypoints.length > 0) {
-          let waypoint = this.waypoints[0];
-          let angleToFace = Math.atan2(waypoint.y - this.y, waypoint.x - this.x);
-          this.angle = angleToFace;
-          let mX = this.speed * Math.cos(this.angle);
-          let mY = this.speed * Math.sin(this.angle);
-          this.x += mX;
-          this.y += mY;
+      takeAction() {
+        if (this.commands.length > 0) {
+          let command = this.commands[0];
+          command.step();
+          if (command.isDone()) this.commands.shift();
         }
-      };
+      }
     }
     return {
       Unit: Unit,

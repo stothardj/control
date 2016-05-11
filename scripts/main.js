@@ -1,7 +1,8 @@
-define(['./canvas', './selection', './panzoom', './random', './ling',
+define(['./movecommand', './canvas', './selection', './panzoom', './random', './ling',
     './unitselection', './game', './unitwaypoints', './controlgroups',
-    './wall', './pathable'], (canvas, selection, panzoom, random, ling,
-      unitselection, game, unitwaypoints, controlgroups, wall, pathable) => {
+    './wall', './pathable'], (movecommand, canvas, selection, panzoom,
+      random, ling, unitselection, game, unitwaypoints, controlgroups, wall,
+      pathable) => {
   let ctx = canvas.ctxmap['game'];
   let width = canvas.canvasmap['game'].width;
   let height = canvas.canvasmap['game'].height;
@@ -36,10 +37,15 @@ define(['./canvas', './selection', './panzoom', './random', './ling',
       }
     }
   });
-  unitwaypoints.onSetWaypoint((waypoint) => {
+  unitwaypoints.onSetWaypoint((waypoint, additive) => {
     for (let unit of units) {
       if (unit.selected) {
-        unit.waypoints = [waypoint];
+        let command = new movecommand.MoveCommand(unit, waypoint);
+        if (additive) {
+          unit.commands.push(command);
+        } else {
+          unit.commands = [command];
+        }
       }
     }
   });
@@ -71,7 +77,7 @@ define(['./canvas', './selection', './panzoom', './random', './ling',
         wall.draw();
       }
       for (let unit of units) {
-        unit.move();
+        unit.takeAction();
         if (unit.selected) unitselection.drawSelected(unit);
         unit.draw();
       }

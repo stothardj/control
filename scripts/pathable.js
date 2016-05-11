@@ -50,6 +50,10 @@ define(['./canvas', './game'], (canvas, game) => {
         }
       }
     }
+
+    findPath(start, end) {
+      return [end];
+    }
   }
   let snapToGrid = (val, cellSize) => {
     return val - (val % cellSize);
