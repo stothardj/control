@@ -1,11 +1,11 @@
-define(['./canvas', './nativeevents', './panzoom'], (canvas, nativeevents, panzoom) => {
+define(['./layers', './nativeevents', './panzoom'], (layers, nativeevents, panzoom) => {
   let selecting = false;
   let startX = 0;
   let startY = 0;
   let endX = 0;
   let endY = 0;
-  let c = canvas.canvasmap['mouse'];
-  let ctx = canvas.ctxmap['mouse'];
+  let c = layers.mouse.getCanvas();
+  let ctx = layers.mouse.getContext();
   let selectCallbacks = [];
   let mouseDown = (ev) => {
     if (nativeevents.isLeftMouseButton(ev)) {

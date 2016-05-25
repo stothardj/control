@@ -1,6 +1,6 @@
-define(['./canvas', './nativeevents', './game'], (canvas, nativeevents, game) => {
-  let c = canvas.canvasmap['mouse'];
-  let ctx = canvas.ctxmap['game'];
+define(['./layers', './nativeevents', './game'], (layers, nativeevents, game) => {
+  let c = layers.mouse.getCanvas();
+  let ctx = layers.game.getContext();
   let x = 0;
   let y = 0;
   let panning = false;

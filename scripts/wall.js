@@ -1,4 +1,4 @@
-define(['./canvas'], (canvas) => {
+define(['./layers'], (layers) => {
   class Wall {
     constructor(x, y, width, height) {
       this.x = x;
@@ -8,7 +8,7 @@ define(['./canvas'], (canvas) => {
     }
 
     draw() {
-      let ctx = canvas.ctxmap['game'];
+      let ctx = layers.game.getContext();
       ctx.fillStyle = 'blue';
       ctx.fillRect(this.x, this.y, this.width, this.height);
     }

@@ -1,11 +1,11 @@
-define(['./canvas', './unit'], (canvas, unit) => {
+define(['./layers', './unit'], (layers, unit) => {
   class Ling extends unit.Unit {
     constructor(x, y, angle) {
       super(x, y, angle);
     }
 
     draw() {
-      let ctx = canvas.ctxmap['game'];
+      let ctx = layers.game.getContext();
       ctx.save();
       ctx.translate(this.x, this.y);
       ctx.rotate(this.angle);

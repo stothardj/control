@@ -1,4 +1,4 @@
-define(['./canvas', './game'], (canvas, game) => {
+define(['./layers', './game'], (layers, game) => {
   let dim = () => game.getCurrentLevel().getDimensions();
   class Cell {
     constructor(x, y) {
@@ -36,7 +36,7 @@ define(['./canvas', './game'], (canvas, game) => {
 
     // For debugging
     draw() {
-      let ctx = canvas.ctxmap['game'];
+      let ctx = layers.game.getContext();
       ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
       ctx.lineWidth = 1;
       ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';

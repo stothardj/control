@@ -1,5 +1,5 @@
-define(['./canvas'], (canvas) => {
-  let ctx = canvas.ctxmap['game'];
+define(['./layers'], (layers) => {
+  let ctx = layers.game.getContext();
 
   return {
     drawSelected: (unit) => {

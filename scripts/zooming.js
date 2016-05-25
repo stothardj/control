@@ -1,7 +1,7 @@
-define(['./canvas'], (canvas) => {
+define(['./layers'], (layers) => {
   const ZOOM_CHANGE = 0.05;
-  let c = canvas.canvasmap['mouse'];
-  let ctx = canvas.ctxmap['game'];
+  let c = layers.mouse.getCanvas();
+  let ctx = layers.game.getContext();
   let zoom = 1;
   
   let wheel = (ev) => {

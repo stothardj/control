@@ -1,5 +1,5 @@
-define(['./canvas', './nativeevents', './panning'], (canvas, nativeevents, panning) => {
-  let c = canvas.canvasmap['mouse'];
+define(['./layers', './nativeevents', './panning'], (layers, nativeevents, panning) => {
+  let c = layers.mouse.getCanvas();
   let setWayoutpointCallbacks = [];
   let mouseDown = (ev) => {
     let {x: gameX, y: gameY} = panning.screenToGameCoords(ev.clientX, ev.clientY);
