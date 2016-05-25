@@ -1,5 +1,5 @@
 define(['./layers', './nativeevents', './game'], (layers, nativeevents, game) => {
-  let c = layers.mouse.getCanvas();
+  let capture = layers.eventcapture.getCanvas();
   let ctx = layers.game.getContext();
   let x = 0;
   let y = 0;
@@ -23,9 +23,9 @@ define(['./layers', './nativeevents', './game'], (layers, nativeevents, game) =>
   };
   return {
     start: () => {
-      c.addEventListener('mousedown', mouseDown);
-      c.addEventListener('mousemove', mouseMove);
-      c.addEventListener('mouseup', mouseUp);
+      capture.addEventListener('mousedown', mouseDown);
+      capture.addEventListener('mousemove', mouseMove);
+      capture.addEventListener('mouseup', mouseUp);
     },
     withPanningOffset: (fn) => {
       ctx.save();

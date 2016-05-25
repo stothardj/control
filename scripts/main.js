@@ -1,8 +1,8 @@
 define(['./movecommand', './layers', './selection', './panzoom', './random', './ling',
     './unitselection', './game', './unitwaypoints', './controlgroups',
-    './wall', './pathable'], (movecommand, layers, selection, panzoom,
+    './wall', './pathable', './pausing'], (movecommand, layers, selection, panzoom,
       random, ling, unitselection, game, unitwaypoints, controlgroups, wall,
-      pathable) => {
+      pathable, pausing) => {
   let ctx = layers.game.getContext();
   let width = layers.game.getCanvas().width;
   let height = layers.game.getCanvas().height;
@@ -28,6 +28,7 @@ define(['./movecommand', './layers', './selection', './panzoom', './random', './
   panzoom.start();
   unitwaypoints.start();
   controlgroups.start();
+  pausing.start();
   selection.onSelect((bounds, additive) => {
     for (let unit of units) {
       if (selection.isInBounds(bounds, unit)) {

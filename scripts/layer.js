@@ -1,4 +1,4 @@
-define(function() {
+define(() => {
   class Layer {
     constructor(name) {
       this.name_ = name;

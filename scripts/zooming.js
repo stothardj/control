@@ -1,6 +1,6 @@
 define(['./layers'], (layers) => {
   const ZOOM_CHANGE = 0.05;
-  let c = layers.mouse.getCanvas();
+  let capture = layers.eventcapture.getCanvas();
   let ctx = layers.game.getContext();
   let zoom = 1;
   
@@ -9,11 +9,10 @@ define(['./layers'], (layers) => {
     if (ev.deltaY > 0) change = -ZOOM_CHANGE;
     else if (ev.deltaY < 0) change = ZOOM_CHANGE;
     zoom += change;
-    console.log(zoom);
   };
   return {
     start() {
-      c.addEventListener('wheel', wheel);
+      capture.addEventListener('wheel', wheel);
     },
     withZoomScaling: (fn) => {
       ctx.save();

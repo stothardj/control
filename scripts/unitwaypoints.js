@@ -1,5 +1,5 @@
 define(['./layers', './nativeevents', './panning'], (layers, nativeevents, panning) => {
-  let c = layers.mouse.getCanvas();
+  let capture = layers.eventcapture.getCanvas();
   let setWayoutpointCallbacks = [];
   let mouseDown = (ev) => {
     let {x: gameX, y: gameY} = panning.screenToGameCoords(ev.clientX, ev.clientY);
@@ -11,7 +11,7 @@ define(['./layers', './nativeevents', './panning'], (layers, nativeevents, panni
   };
   return {
     start: () => {
-      c.addEventListener('mousedown', mouseDown);
+      capture.addEventListener('mousedown', mouseDown);
     },
     onSetWaypoint: (fn) => {
       setWayoutpointCallbacks.push(fn);

@@ -6,6 +6,7 @@ define(['./layers', './nativeevents', './panzoom'], (layers, nativeevents, panzo
   let endY = 0;
   let c = layers.mouse.getCanvas();
   let ctx = layers.mouse.getContext();
+  let capture = layers.eventcapture.getCanvas();
   let selectCallbacks = [];
   let mouseDown = (ev) => {
     if (nativeevents.isLeftMouseButton(ev)) {
@@ -63,10 +64,10 @@ define(['./layers', './nativeevents', './panzoom'], (layers, nativeevents, panzo
   };
   return {
     start: () => {
-      c.addEventListener('mousedown', mouseDown);
-      c.addEventListener('mousemove', mouseMove);
-      c.addEventListener('mouseup', mouseUp);
-      c.addEventListener('contextmenu', (ev) => { ev.preventDefault(); return false; });
+      capture.addEventListener('mousedown', mouseDown);
+      capture.addEventListener('mousemove', mouseMove);
+      capture.addEventListener('mouseup', mouseUp);
+      capture.addEventListener('contextmenu', (ev) => { ev.preventDefault(); return false; });
     },
     onSelect: (callback) => {
       selectCallbacks.push(callback);

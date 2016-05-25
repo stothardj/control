@@ -2,17 +2,30 @@
   position: relative;
 }
 
-#mouse, #game {
+.layer {
   position: absolute;
   left: 0;
   top: 0;
-}
-
-#mouse {
-  z-index: 1;
   cursor: none;
 }
 
+/* Layer guarenteed to be at the front so it can be used for listening for mouse events */
+#eventcapture {
+  z-index: 1000;
+}
+
+/* Overlay displayed only when the game is paused */
+#pause {
+  z-index: 2;
+  display: none;
+}
+
+/* Layer which displays the interactions of the mouse such as selection and waypoint setting */
+#mouse {
+  z-index: 1;
+}
+
+/* Rendering of actual game such as units and walls */
 #game {
   z-index: 0;
 }
