@@ -1,4 +1,12 @@
-define(['./layers', './nativeevents', './panzoom'], (layers, nativeevents, panzoom) => {
+define([
+  './layers',
+  './nativeevents',
+  './panzoom',
+], (
+  layers,
+  nativeevents,
+  panzoom
+) => {
   let selecting = false;
   let startX = 0;
   let startY = 0;

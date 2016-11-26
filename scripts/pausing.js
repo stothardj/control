@@ -1,4 +1,8 @@
-define(['./layers'], (layers) => {
+define([
+  './layers'
+], (
+  layers
+) => {
   let ctx = layers.pause.getContext();
   let canvas = layers.pause.getCanvas();
 

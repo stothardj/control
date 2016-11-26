@@ -1,4 +1,12 @@
-define(['./layers', './nativeevents', './panning'], (layers, nativeevents, panning) => {
+define([
+  './layers',
+  './nativeevents',
+  './panning',
+], (
+  layers,
+  nativeevents,
+  panning
+) => {
   let capture = layers.eventcapture.getCanvas();
   let setWayoutpointCallbacks = [];
   let mouseDown = (ev) => {

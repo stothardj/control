@@ -1,4 +1,10 @@
-define(['./layers', './game'], (layers, game) => {
+define([
+  './game',
+  './layers',
+], (
+  game,
+  layers
+) => {
   let dim = () => game.getCurrentLevel().getDimensions();
   class Cell {
     constructor(x, y) {

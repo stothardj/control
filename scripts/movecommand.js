@@ -1,4 +1,8 @@
-define(['./command'], (command) => {
+define([
+  './command',
+], (
+  command
+) => {
   class MoveCommand extends command.Command {
     constructor(unit, dest) {
       super(unit);

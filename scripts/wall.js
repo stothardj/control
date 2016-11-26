@@ -1,4 +1,8 @@
-define(['./layers'], (layers) => {
+define([
+  './layers'
+], (
+  layers
+) => {
   class Wall {
     constructor(x, y, width, height) {
       this.x = x;

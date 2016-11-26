@@ -1,4 +1,10 @@
-define(['./layers', './unit'], (layers, unit) => {
+define([
+  './layers', 
+  './unit',
+], (
+  layers,
+  unit
+) => {
   class Ling extends unit.Unit {
     constructor(x, y, angle) {
       super(x, y, angle);

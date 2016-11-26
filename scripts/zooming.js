@@ -1,4 +1,8 @@
-define(['./layers'], (layers) => {
+define([
+  './layers'
+], (
+  layers
+) => {
   const ZOOM_CHANGE = 0.05;
   let capture = layers.eventcapture.getCanvas();
   let ctx = layers.game.getContext();

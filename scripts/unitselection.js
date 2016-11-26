@@ -1,4 +1,8 @@
-define(['./layers'], (layers) => {
+define([
+  './layers',
+], (
+  layers
+) => {
   let ctx = layers.game.getContext();
 
   return {

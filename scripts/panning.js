@@ -1,4 +1,12 @@
-define(['./layers', './nativeevents', './game'], (layers, nativeevents, game) => {
+define([
+  './game',
+  './layers',
+  './nativeevents',
+], (
+  game,
+  layers,
+  nativeevents
+) => {
   let capture = layers.eventcapture.getCanvas();
   let ctx = layers.game.getContext();
   let x = 0;

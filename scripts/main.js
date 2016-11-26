@@ -1,8 +1,32 @@
-define(['./movecommand', './layers', './selection', './panzoom', './random', './ling',
-    './unitselection', './game', './unitwaypoints', './controlgroups',
-    './wall', './pathable', './pausing'], (movecommand, layers, selection, panzoom,
-      random, ling, unitselection, game, unitwaypoints, controlgroups, wall,
-      pathable, pausing) => {
+define([
+  './controlgroups',
+  './game',
+  './layers',
+  './ling',
+  './movecommand',
+  './panzoom',
+  './pathable',
+  './pausing',
+  './random',
+  './selection',
+  './unitselection',
+  './unitwaypoints',
+  './wall',
+], (
+  controlgroups,
+  game,
+  layers,
+  ling,
+  movecommand,
+  panzoom,
+  pathable,
+  pausing,
+  random,
+  selection,
+  unitselection,
+  unitwaypoints,
+  wall
+) => {
   let ctx = layers.game.getContext();
   let width = layers.game.getCanvas().width;
   let height = layers.game.getCanvas().height;

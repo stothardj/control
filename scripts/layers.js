@@ -1,4 +1,8 @@
-define(['./layer'], (layer) => {
+define([
+  './layer',
+], (
+  layer
+) => {
   let Layer = layer.Layer;
   return {
     eventcapture: new Layer('eventcapture'),

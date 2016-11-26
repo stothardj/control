@@ -1,4 +1,10 @@
-define(['./panning', './zooming'], (panning, zooming) => {
+define([
+  './panning',
+  './zooming',
+], (
+  panning,
+  zooming
+) => {
   return {
     start: () => {
       panning.start();
